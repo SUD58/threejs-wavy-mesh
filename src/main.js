@@ -49,7 +49,7 @@ const material = new CustomShaderMaterial({
 const sphere = new Mesh(geometry, material);
 scene.add(sphere);
 
-const ambientLight = new AmbientLight(0xffffff, 0.5);
+const ambientLight = new AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
 const directionalLight = new DirectionalLight(0xffffff, 1);
