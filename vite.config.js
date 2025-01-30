@@ -4,4 +4,5 @@ import glsl from "vite-plugin-glsl";
 
 export default defineConfig({
   plugins: [tailwindcss(), glsl()],
+  base: "/threejs-wavy-mesh/",
 });
