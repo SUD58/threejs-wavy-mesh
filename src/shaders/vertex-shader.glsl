@@ -1,7 +1,18 @@
+#include "/node_modules/lygia/generative/cnoise.glsl"
+
+uniform float uNoiseScale;
+uniform float uTime;
+
 varying vec3 vPosition;
+varying float vNoise;
 
 void main() {
-    vPosition = position;
+    float noise = cnoise(position * uNoiseScale + uTime);
+    vNoise = noise;
 
-    csm_Position = vec3(position);
+    vec3 displacedPosition = position + normal * noise;
+
+    vPosition = displacedPosition;
+
+    csm_Position = displacedPosition;
 }

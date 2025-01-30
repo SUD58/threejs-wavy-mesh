@@ -1,8 +1,12 @@
-#include "/node_modules/lygia/generative/cnoise.glsl"
-
-varying vec3 vPosition;
+varying float vNoise;
 
 void main() {
-    float color = cnoise(vPosition * 5.0);
-    csm_DiffuseColor = vec4(vec3(color), 1.0);
+    vec3 fdx = dFdx(vViewPosition);
+    vec3 fdy = dFdy(vViewPosition);
+    vec3 newNormal = normalize(cross(fdx, fdy));
+
+    vec3 color = vec3(vNoise, 1.0 - vNoise, 1.0 - vNoise);
+
+    csm_DiffuseColor = vec4(color, 1.0);
+    csm_FragNormal = newNormal;
 }
