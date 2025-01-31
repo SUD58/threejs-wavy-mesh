@@ -77,3 +77,9 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+
+const guiDiv = document.querySelector("div");
+const paragraph = document.createElement("p");
+paragraph.innerHTML = `Project by <a class="underline" target="_blank" href="https://github.com/SUD58">Suhrud Shringarputale</a>`;
+paragraph.className = "text-white text-sm text-right mt-2!";
+guiDiv.appendChild(paragraph);
